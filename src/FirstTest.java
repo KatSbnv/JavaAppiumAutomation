@@ -264,7 +264,7 @@ public class FirstTest {
                 By.xpath("//*[@text=''Java (programming language)]"),
                 "Cannot delete saved article",
                 5
-        ); 
+        );
 
     }
 
@@ -333,26 +333,27 @@ public class FirstTest {
      {
          swipeUp(200);
      }
+    protected void  swipeUpToFindElement (By by, String error_message, int max_swipes)
+    {
+        int already_swiped = 0;
+        while (driver.findElements(by).size() == 0){
 
-     protected void  swipeUpToFindElement (By by, String error_message, int max_swipes)
-     {
-         int already_swiped = 0;
-         while (driver.findElements(by).size() == 0){
+            if (already_swiped > max_swipes){
+                waitForElementPresent(by,"Cannot find element by swiping up. \n" + error_message, 0);
+                return;
+            }
+            swipeUpQuick();
+            ++already_swiped;
+        }
+    }
+    protected void swipeElementLeft(By by, String error_message)
+    {
+        WebElement element = waitForElementPresent(by, error_message, 10);
 
-             if (already_swiped > max_swipes){
-                 waitForElementPresent(by,"Cannot find element by swiping up. \n" + error_message, 0);
-                 return;
-             }
-             swipeUpQuick();
-             ++already_swiped;
-         }
-     }
-     protected void swipeElementLeft(By by, String error_message)
-     {
-         WebElement element = waitForElementPresent(by, error_message, 10);
+        int left_x = element.getLocation().getX();
+        int right_x =
 
-         int left_x = element.getLocation().getX();
-         int right_x = left_x + element.getSize().getWidth();
+   left_x + element.getSize().getWidth();
          int upper_y = element.getLocation().getY();
          int lower_y = upper_y + element.getSize().getHeight();
          int middle_y = (upper_y + lower_y) / 2;
@@ -366,4 +367,6 @@ public class FirstTest {
                  .perform();
 
      }
+
+     //mynewcommit
 }
