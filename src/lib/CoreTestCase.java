@@ -2,6 +2,7 @@ package lib;
 
 import io.appium.java_client.android.AndroidDriver;
 import junit.framework.TestCase;
+import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import java.net.URL;
 
@@ -17,15 +18,25 @@ public class CoreTestCase extends TestCase {
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
-        capabilities.setCapability("platformName", "Android");
+//        capabilities.setCapability("platformName", "Android");
+//        capabilities.setCapability("deviceName", "AndroidTestDevice");
+//        capabilities.setCapability("platformVersion", "8.0");
+//        capabilities.setCapability("automationName", "Appium");
+//        capabilities.setCapability("appPackage", "org.wikipedia");
+//        capabilities.setCapability("appActivity", ".main.MainActivity");
+//        capabilities.setCapability("app", "/Users/a123/JavaAppiumAutomation/apks/org.wikipedia.apk"); //"/Users/kat_sbnv/Desktop/JavaAppiumAutomation/apks/org.wikipedia.apk"
+
+
+        capabilities.setCapability("platformName", "Pixel 2 XL");
         capabilities.setCapability("deviceName", "AndroidTestDevice");
-        capabilities.setCapability("platformVersion", "8.0");
+        capabilities.setCapability("platformVersion", "8.1.0");
         capabilities.setCapability("automationName", "Appium");
         capabilities.setCapability("appPackage", "org.wikipedia");
         capabilities.setCapability("appActivity", ".main.MainActivity");
         capabilities.setCapability("app", "/Users/a123/JavaAppiumAutomation/apks/org.wikipedia.apk"); //"/Users/kat_sbnv/Desktop/JavaAppiumAutomation/apks/org.wikipedia.apk"
 
         driver = new AndroidDriver(new URL(AppiumURL), capabilities);
+        this.rotateScreenPortrait();
 
     }
 
@@ -35,6 +46,23 @@ public class CoreTestCase extends TestCase {
 
         super.tearDown();
 
+    }
+
+    protected void rotateScreenPortrait()
+    {
+
+        driver.rotate(ScreenOrientation.PORTRAIT);
+    }
+
+    protected void rotateScreenLandscape()
+    {
+
+        driver.rotate(ScreenOrientation.LANDSCAPE);
+    }
+
+    protected void backgroundApp (int seconds)
+    {
+        driver.runAppInBackground(seconds);
     }
 
 

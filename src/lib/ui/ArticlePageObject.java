@@ -12,13 +12,11 @@ public class ArticlePageObject extends MainPageObject
             TITLE = "org.wikipedia:id/view_page_title_text",
             FOOTER_ELEMENT = "//*[@text='View page in browser']",
             OPTIONS_BUTTON = "//android.widget.ImageView[@content-desc='More options']",
-            OPTIONS_ADD_TO_MY_LIST_BUTTON = "//*[@text='Add to reading list']",
+            OPTIONS_ADD_TO_MY_LIST_BUTTON = "//android.widget.TextView[@text='Add to reading list']",
             ADD_TO_MY_LIST_OVERLAY = "org.wikipedia:id/onboarding_button",
             MY_LIST_NAME_INPUT = "org.wikipedia:id/text_input",
             MY_LIST_OK_BUTTON = "//*[@text='OK']",
-    CLOSE_ARTICLE_BUTTON = "//android.widget.ImageButton[@content-desc='Navigate up']";
-
-
+            CLOSE_ARTICLE_BUTTON = "//android.widget.ImageButton[@content-desc='Navigate up']";
 
     public ArticlePageObject(AppiumDriver driver)
     {

@@ -36,6 +36,11 @@ public class MainPageObject {
     {
         WebElement element = waitForElementPresent(by, error_message, timeoutInSeconds);
         element.click();
+        try {
+            Thread.sleep(200);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return element;
     }
 
