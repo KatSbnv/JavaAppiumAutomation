@@ -5,7 +5,6 @@ import io.appium.java_client.TouchAction;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -33,7 +32,7 @@ public class MainPageObject {
     }
 
     public WebElement waitForElementPresent(String locator, String error_message) {
-        return waitForElementPresent(locator, error_message, 5);
+        return waitForElementPresent(locator, error_message, 10);
     }
 
     public WebElement waitForElementAndClick(String locator, String error_message, long timeoutInSeconds)
