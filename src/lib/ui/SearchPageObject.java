@@ -55,12 +55,7 @@ abstract public class SearchPageObject extends MainPageObject {
 
     {
         String search_result_xpath = getResultSearchingElement(substring);
-//        try {
-//            Thread.sleep(5000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-//        System.out.println( driver.getPageSource());
+//
         this.waitForElementPresent(search_result_xpath, "Cannot find search result with substring " + substring);
     }
     public void clickByArticleWithSubstring (String substring)
